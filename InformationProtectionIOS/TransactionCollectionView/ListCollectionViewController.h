@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ListCollectionViewController.h
 //  InformationProtectionIOS
 //
 //  Created by Ira on 15.10.17.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface ListCollectionViewController : UICollectionViewController
 
 @end
-
