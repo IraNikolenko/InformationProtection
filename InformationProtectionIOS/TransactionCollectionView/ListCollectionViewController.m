@@ -8,9 +8,9 @@
 
 #import "ListCollectionViewController.h"
 #import "TransactionCollectionViewCell.h"
+#import "TransactionViewController.h"
 
 @interface ListCollectionViewController ()
-
 @end
 
 @implementation ListCollectionViewController
@@ -24,6 +24,17 @@ static NSString * const reuseIdentifier = @"TransactionCell";
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Do any additional setup after loading the view.
+//    [self.collectionView performBatchUpdates:^{
+//        
+//        NSArray *selectedItemsIndexPaths = [self.collectionView indexPathsForSelectedItems];
+//        
+//        // Delete the items from the data source.
+//        [self deleteItemsFromDataSourceAtIndexPaths:selectedItemsIndexPaths];
+//        
+//        // Now delete the items from the collection view.
+//        [self.collectionView deleteItemsAtIndexPaths:selectedItemsIndexPaths];
+//        
+//    } completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,8 +61,8 @@ static NSString * const reuseIdentifier = @"TransactionCell";
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of items
-    return 5;
+//#warning Incomplete implementation, return the number of items
+    return [[ListCollection sharedMainModel].transactions count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -69,9 +80,22 @@ static NSString * const reuseIdentifier = @"TransactionCell";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+   
+}
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    TransactionViewController *transactionViewController = segue.destinationViewController;
+    NSIndexPath *path = [self.collectionView indexPathForCell:sender];
+    transactionViewController.transaction = [ListCollection sharedMainModel].transactions[path.row];
+}
+-(void)deleteItemsFromDataSourceAtIndexPaths:(NSArray  *)itemPaths
+{
+    NSMutableIndexSet *indexSet = [NSMutableIndexSet indexSet];
+    for (NSIndexPath *itemPath  in itemPaths) {
+        [indexSet addIndex:itemPath.row];
+    }
+    [[ListCollection sharedMainModel].transactions removeObjectsAtIndexes:indexSet];
     
 }
-
 #pragma mark <UICollectionViewDelegate>
 
 /*

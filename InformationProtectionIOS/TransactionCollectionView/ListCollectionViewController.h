@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ListCollection.h"
 @interface ListCollectionViewController : UICollectionViewController
-
 @end

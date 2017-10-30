@@ -4,7 +4,8 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -65,6 +66,7 @@
                                     <outlet property="locationLabel" destination="z3H-EK-JRi" id="bv4-V6-7Jb"/>
                                     <outlet property="requestorLabel" destination="c9r-1U-PiT" id="l8P-AD-z2r"/>
                                     <outlet property="statusLabel" destination="aoJ-Sb-QcG" id="Hph-8S-WRZ"/>
+                                    <segue destination="hw4-MR-aHR" kind="show" id="aAS-sW-cOg"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -78,6 +80,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xre-iw-IxD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="760.79999999999995" y="-254.12293853073464"/>
+        </scene>
+        <!--Transaction View Controller-->
+        <scene sceneID="T4s-oj-87n">
+            <objects>
+                <viewController id="hw4-MR-aHR" customClass="TransactionViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CND-E5-7m6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="WIG-sH-fKn"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="0Kk-R5-V5Y"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0zD-bP-zQl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1662" y="-254"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="f3m-e5-RAe">
