@@ -7,12 +7,17 @@
 //
 
 #import "ListCollection.h"
+#import "ServerHTTPTransactionManager.h"
+#import "Transaction+DictionarySerialization.h"
+
+NSString * const kPKBHaloSongCollectionArrayKeyPath = @"transactions";
 
 @implementation ListCollection
--(id) init{
+
+-(id) init {
     self = [super init];
-    //Get data from database
-    //self.transactions = 
+    self.transactions = [NSMutableArray array];
+    [self loadAllTransactions];
     return self;
 }
 
@@ -24,4 +29,18 @@
     });
     return modelController;
 }
+
+- (void)loadAllTransactions {
+    [ServerHTTPTransactionManager getAllTransactionsWithCompletionHandler:^(NSDictionary *result, BOOL success) {
+        if (result) {
+            for (NSDictionary *immutDictionary in result) {
+                Transaction *transaction = [[Transaction alloc] initWithDictionary:immutDictionary];
+                [self willChangeValueForKey:kPKBHaloSongCollectionArrayKeyPath];
+                [self.transactions addObject:transaction];
+                [self didChangeValueForKey:kPKBHaloSongCollectionArrayKeyPath];
+            }
+        }
+    }];
+}
+
 @end

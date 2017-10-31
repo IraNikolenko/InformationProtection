@@ -16,7 +16,11 @@
 @property (nonatomic, strong, nonnull) NSString *location;
 @property (nonatomic, strong, nonnull) NSString *status;
 @property (nonatomic, strong, nonnull) NSString *transactionCode;
-@property (nonatomic, strong, nonnull) NSString *description;
+@property (nonatomic, strong, nonnull) NSString *descriptionTransaction;
 @property (nonatomic, strong, nonnull) NSString *requestorLogo;
+
+- (instancetype)initWithTransactionID:(NSString *) transactionID date:(NSString *)date requestor:(NSString *) requestor location:(NSString *) location status:(NSString *) status transactionCode:(NSString *) transactionCode description:(NSString *) description requestorLogo:(NSString *) requestorLogo;
+
+- (instancetype)initWithTransactionID:(NSString *) transactionID;
 
 @end

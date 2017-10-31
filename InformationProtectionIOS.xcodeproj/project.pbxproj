@@ -12,11 +12,14 @@
 		845789F41F937CA200CCC845 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 845789F31F937CA200CCC845 /* Assets.xcassets */; };
 		845789F71F937CA200CCC845 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845789F51F937CA200CCC845 /* LaunchScreen.storyboard */; };
 		845789FA1F937CA200CCC845 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 845789F91F937CA200CCC845 /* main.m */; };
+		847E28141FA7E8860085F32E /* ServerHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 847E28131FA7E8860085F32E /* ServerHTTPRequest.m */; };
+		847E28181FA7EDCF0085F32E /* ServerHTTPTransactionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 847E28171FA7EDCF0085F32E /* ServerHTTPTransactionManager.m */; };
+		847E281B1FA7F6640085F32E /* Transaction+DictionarySerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 847E281A1FA7F6640085F32E /* Transaction+DictionarySerialization.m */; };
 		84A0AF011F938B4A003AE67A /* ListCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A0AF001F938B4A003AE67A /* ListCollectionViewController.m */; };
 		84A0AF041F9397FA003AE67A /* TransactionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A0AF031F9397FA003AE67A /* TransactionCollectionViewCell.m */; };
 		84A0AF091F939C35003AE67A /* Transaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A0AF081F939C35003AE67A /* Transaction.m */; };
 		A64504D21FA78FAA00D65663 /* ListCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = A64504D11FA78FAA00D65663 /* ListCollection.m */; };
-		A64504D81FA7A2C300D65663 /* TransactionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A64504D71FA7A2C300D65663 /* TransactionViewController.m */; };
+		A64504D81FA7A2C300D65663 /* TransactionDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A64504D71FA7A2C300D65663 /* TransactionDetailsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,12 @@
 		845789F61F937CA200CCC845 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		845789F81F937CA200CCC845 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		845789F91F937CA200CCC845 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		847E28121FA7E8860085F32E /* ServerHTTPRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServerHTTPRequest.h; sourceTree = "<group>"; };
+		847E28131FA7E8860085F32E /* ServerHTTPRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServerHTTPRequest.m; sourceTree = "<group>"; };
+		847E28161FA7EDCF0085F32E /* ServerHTTPTransactionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServerHTTPTransactionManager.h; sourceTree = "<group>"; };
+		847E28171FA7EDCF0085F32E /* ServerHTTPTransactionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServerHTTPTransactionManager.m; sourceTree = "<group>"; };
+		847E28191FA7F6640085F32E /* Transaction+DictionarySerialization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Transaction+DictionarySerialization.h"; sourceTree = "<group>"; };
+		847E281A1FA7F6640085F32E /* Transaction+DictionarySerialization.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Transaction+DictionarySerialization.m"; sourceTree = "<group>"; };
 		84A0AEFF1F938B4A003AE67A /* ListCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListCollectionViewController.h; sourceTree = "<group>"; };
 		84A0AF001F938B4A003AE67A /* ListCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListCollectionViewController.m; sourceTree = "<group>"; };
 		84A0AF021F9397FA003AE67A /* TransactionCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransactionCollectionViewCell.h; sourceTree = "<group>"; };
@@ -36,8 +45,8 @@
 		84A0AF081F939C35003AE67A /* Transaction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Transaction.m; sourceTree = "<group>"; };
 		A64504D01FA78FAA00D65663 /* ListCollection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListCollection.h; sourceTree = "<group>"; };
 		A64504D11FA78FAA00D65663 /* ListCollection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListCollection.m; sourceTree = "<group>"; };
-		A64504D61FA7A2C300D65663 /* TransactionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransactionViewController.h; sourceTree = "<group>"; };
-		A64504D71FA7A2C300D65663 /* TransactionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransactionViewController.m; sourceTree = "<group>"; };
+		A64504D61FA7A2C300D65663 /* TransactionDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransactionDetailsViewController.h; sourceTree = "<group>"; };
+		A64504D71FA7A2C300D65663 /* TransactionDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransactionDetailsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +79,7 @@
 		845789E91F937CA200CCC845 /* InformationProtectionIOS */ = {
 			isa = PBXGroup;
 			children = (
+				847E28111FA7E8340085F32E /* Server Side */,
 				84A0AF061F939C19003AE67A /* model */,
 				845789EA1F937CA200CCC845 /* AppDelegate.h */,
 				845789EB1F937CA200CCC845 /* AppDelegate.m */,
@@ -83,6 +93,25 @@
 			path = InformationProtectionIOS;
 			sourceTree = "<group>";
 		};
+		847E28111FA7E8340085F32E /* Server Side */ = {
+			isa = PBXGroup;
+			children = (
+				847E28121FA7E8860085F32E /* ServerHTTPRequest.h */,
+				847E28131FA7E8860085F32E /* ServerHTTPRequest.m */,
+				847E28151FA7ED1E0085F32E /* ServerHTTPTransactionManager */,
+			);
+			path = "Server Side";
+			sourceTree = "<group>";
+		};
+		847E28151FA7ED1E0085F32E /* ServerHTTPTransactionManager */ = {
+			isa = PBXGroup;
+			children = (
+				847E28161FA7EDCF0085F32E /* ServerHTTPTransactionManager.h */,
+				847E28171FA7EDCF0085F32E /* ServerHTTPTransactionManager.m */,
+			);
+			path = ServerHTTPTransactionManager;
+			sourceTree = "<group>";
+		};
 		84A0AF051F939C09003AE67A /* TransactionCollectionView */ = {
 			isa = PBXGroup;
 			children = (
@@ -90,8 +119,8 @@
 				84A0AF001F938B4A003AE67A /* ListCollectionViewController.m */,
 				84A0AF021F9397FA003AE67A /* TransactionCollectionViewCell.h */,
 				84A0AF031F9397FA003AE67A /* TransactionCollectionViewCell.m */,
-				A64504D61FA7A2C300D65663 /* TransactionViewController.h */,
-				A64504D71FA7A2C300D65663 /* TransactionViewController.m */,
+				A64504D61FA7A2C300D65663 /* TransactionDetailsViewController.h */,
+				A64504D71FA7A2C300D65663 /* TransactionDetailsViewController.m */,
 			);
 			path = TransactionCollectionView;
 			sourceTree = "<group>";
@@ -103,6 +132,8 @@
 				84A0AF081F939C35003AE67A /* Transaction.m */,
 				A64504D01FA78FAA00D65663 /* ListCollection.h */,
 				A64504D11FA78FAA00D65663 /* ListCollection.m */,
+				847E28191FA7F6640085F32E /* Transaction+DictionarySerialization.h */,
+				847E281A1FA7F6640085F32E /* Transaction+DictionarySerialization.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -183,8 +214,11 @@
 				845789EC1F937CA200CCC845 /* AppDelegate.m in Sources */,
 				A64504D21FA78FAA00D65663 /* ListCollection.m in Sources */,
 				84A0AF091F939C35003AE67A /* Transaction.m in Sources */,
+				847E281B1FA7F6640085F32E /* Transaction+DictionarySerialization.m in Sources */,
+				847E28181FA7EDCF0085F32E /* ServerHTTPTransactionManager.m in Sources */,
 				84A0AF041F9397FA003AE67A /* TransactionCollectionViewCell.m in Sources */,
-				A64504D81FA7A2C300D65663 /* TransactionViewController.m in Sources */,
+				847E28141FA7E8860085F32E /* ServerHTTPRequest.m in Sources */,
+				A64504D81FA7A2C300D65663 /* TransactionDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

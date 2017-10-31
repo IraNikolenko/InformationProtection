@@ -10,17 +10,24 @@
 
 @implementation Transaction
 
-- (instancetype)initWithTransactionID:(NSString *) transactionID date:(NSString *)date requestor:(NSString *) requestor location:(NSString *) location status:(NSString *) status transactionCode:(NSString *) transactionCode description:(NSString *) description requestorLogo:(NSString *) requestorLogo
-{
+- (instancetype)initWithTransactionID:(NSString *) transactionID {
     self = [super init];
     if (self) {
         self.transactionID = transactionID;
+    }
+    return self;
+}
+
+- (instancetype)initWithTransactionID:(NSString *) transactionID date:(NSString *)date requestor:(NSString *) requestor location:(NSString *) location status:(NSString *) status transactionCode:(NSString *) transactionCode description:(NSString *) description requestorLogo:(NSString *) requestorLogo
+{
+    self = [self initWithTransactionID:transactionID];
+    if (self) {
         self.date = date;
         self.requestor = requestor;
         self.location = location;
         self.status = status;
         self.transactionCode = transactionCode;
-        self.description = description;
+        self.descriptionTransaction = description;
         self.requestorLogo = requestorLogo;
     }
     return self;

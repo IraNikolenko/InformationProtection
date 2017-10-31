@@ -8,7 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString * const kPKBHaloSongCollectionArrayKeyPath;
+static void * _Nonnull PKBHaloSongCollectionArrayContext = &PKBHaloSongCollectionArrayContext;
+
 @interface ListCollection : NSObject
-@property (nonatomic, strong, nonnull) NSMutableArray *transactions;
+
+@property (nonatomic, strong, readwrite) NSMutableArray *transactions;
+
 + (instancetype)sharedMainModel;
+
 @end

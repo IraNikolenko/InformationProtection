@@ -8,7 +8,8 @@
 
 #import "ListCollectionViewController.h"
 #import "TransactionCollectionViewCell.h"
-#import "TransactionViewController.h"
+#import "TransactionDetailsViewController.h"
+#import "ListCollection.h"
 
 @interface ListCollectionViewController ()
 @end
@@ -19,6 +20,8 @@ static NSString * const reuseIdentifier = @"TransactionCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[ListCollection sharedMainModel] addObserver:self forKeyPath:kPKBHaloSongCollectionArrayKeyPath options:NSKeyValueObservingOptionNew context:PKBHaloSongCollectionArrayContext];
     
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -35,6 +38,16 @@ static NSString * const reuseIdentifier = @"TransactionCell";
 //        [self.collectionView deleteItemsAtIndexPaths:selectedItemsIndexPaths];
 //        
 //    } completion:nil];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+    if ([keyPath isEqualToString:kPKBHaloSongCollectionArrayKeyPath]) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.collectionView reloadData];
+        });
+    } else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,24 +82,32 @@ static NSString * const reuseIdentifier = @"TransactionCell";
     
     TransactionCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    [cell.dateLabel setText:@"17.06"];
-    [cell.statusLabel setText:@"open"];
-    [cell.locationLabel setText:@"jkfh"];
-    [cell.requestorLabel setText:@"Organization"];
+    Transaction *currentTransaction = [ListCollection sharedMainModel].transactions[indexPath.row];
+    
+    double timeStamp = [currentTransaction.date doubleValue];
+    NSTimeInterval timeInterval=timeStamp/1000;
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeInterval];
+    NSDateFormatter *dateformatter=[[NSDateFormatter alloc]init];
+    [dateformatter setDateFormat:@"dd-MM-yyyy"];
+    NSString *dateString=[dateformatter stringFromDate:date];
+    
+    [cell.dateLabel setText:dateString];
+    [cell.statusLabel setText:currentTransaction.status];
+    [cell.locationLabel setText:currentTransaction.location];
+    [cell.requestorLabel setText:currentTransaction.requestor];
     
     // Configure the cell
     
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-   
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    TransactionDetailsViewController *transactionDetailsViewController = [storyBoard instantiateViewControllerWithIdentifier:@"TransactionDetails"];
+    transactionDetailsViewController.transaction = [ListCollection sharedMainModel].transactions[indexPath.row];
+    [self.navigationController pushViewController:transactionDetailsViewController animated:YES];
 }
--(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    TransactionViewController *transactionViewController = segue.destinationViewController;
-    NSIndexPath *path = [self.collectionView indexPathForCell:sender];
-    transactionViewController.transaction = [ListCollection sharedMainModel].transactions[path.row];
-}
+
 -(void)deleteItemsFromDataSourceAtIndexPaths:(NSArray  *)itemPaths
 {
     NSMutableIndexSet *indexSet = [NSMutableIndexSet indexSet];
@@ -96,6 +117,13 @@ static NSString * const reuseIdentifier = @"TransactionCell";
     [[ListCollection sharedMainModel].transactions removeObjectsAtIndexes:indexSet];
     
 }
+
+- (void)dealloc {
+    NSLog(@"%@ deallocated view controller %@", NSStringFromSelector(_cmd), NSStringFromClass(self.class));
+    
+    [[ListCollection sharedMainModel] removeObserver:self forKeyPath:kPKBHaloSongCollectionArrayKeyPath];
+}
+
 #pragma mark <UICollectionViewDelegate>
 
 /*
